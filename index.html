@@ -9,65 +9,364 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #080808;
-            color: #ffffff;
-            font-family: 'Exo 2', sans-serif;
-            overflow-x: hidden;
-        }
-        .font-orbitron {
-            font-family: 'Orbitron', sans-serif;
-        }
-        .carbon-pattern {
-            background-image: 
-                linear-gradient(45deg, #111 25%, transparent 25%), 
-                linear-gradient(-45deg, #111 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #111 75%), 
-                linear-gradient(-45deg, transparent 75%, #111 75%);
-            background-size: 4px 4px;
-            background-color: #080808;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .red-glow {
-            box-shadow: 0 0 15px rgba(230, 0, 0, 0.4);
-        }
-        .red-glow-hover:hover {
-            box-shadow: 0 0 25px rgba(230, 0, 0, 0.6);
-            border-color: #E60000;
-        }
-        .text-glow {
-            text-shadow: 0 0 10px rgba(230, 0, 0, 0.5);
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #080808;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #E60000;
-            border-radius: 4px;
-        }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/index.css">
 </head>
-<body>
-    <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
+<body class="bg-[#080808] text-white font-['Exo_2',sans-serif] overflow-x-hidden selection:bg-red-600 selection:text-white">
+    <header data-navbar class="fixed w-full z-50 transition-all duration-300 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="bg-[#E60000] p-1.5 rounded-sm transform -skew-x-12">
+                        <i data-lucide="shield-check" class="text-white w-6 h-6 skew-x-12"></i>
+                    </div>
+                    <span class="font-orbitron text-xl font-bold tracking-tighter uppercase italic">
+                        Magic <span class="text-[#E60000]">Wrapz</span>
+                    </span>
+                </div>
+
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-sm font-medium tracking-widest uppercase hover:text-[#E60000] transition-colors">Services</a>
+                    <a href="#showcase" class="text-sm font-medium tracking-widest uppercase hover:text-[#E60000] transition-colors">Showcase</a>
+                    <a href="#why-us" class="text-sm font-medium tracking-widest uppercase hover:text-[#E60000] transition-colors">Process</a>
+                    <a href="#footer" class="text-sm font-medium tracking-widest uppercase hover:text-[#E60000] transition-colors">Contact</a>
+                    <a href="#contact" class="bg-[#E60000] px-6 py-2 text-xs font-bold tracking-widest uppercase transform -skew-x-12 hover:bg-red-700 transition-all red-glow">
+                        <span class="block skew-x-12">Book Now</span>
+                    </a>
+                </nav>
+
+                <button data-menu-toggle class="md:hidden text-white">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+
+        <div data-mobile-menu class="hidden md:hidden bg-[#080808] border-b border-white/10 p-4 absolute w-full left-0">
+            <div class="flex flex-col gap-4">
+                <a href="#services" class="text-lg font-medium tracking-widest uppercase border-l-2 border-transparent hover:border-[#E60000] hover:pl-4 transition-all">Services</a>
+                <a href="#showcase" class="text-lg font-medium tracking-widest uppercase border-l-2 border-transparent hover:border-[#E60000] hover:pl-4 transition-all">Showcase</a>
+                <a href="#why-us" class="text-lg font-medium tracking-widest uppercase border-l-2 border-transparent hover:border-[#E60000] hover:pl-4 transition-all">Process</a>
+                <a href="#footer" class="text-lg font-medium tracking-widest uppercase border-l-2 border-transparent hover:border-[#E60000] hover:pl-4 transition-all">Contact</a>
+                <a href="#contact" class="bg-[#E60000] w-full py-4 text-sm font-bold tracking-widest uppercase text-center transform -skew-x-6">Get A Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="relative min-h-screen w-full flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1603584173870-7f3ca99a3466?auto=format&fit=crop&q=80&w=2000" alt="White Aston Martin Vantage" class="w-full h-full object-cover scale-105">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/80 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent"></div>
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24">
+                <div class="max-w-2xl">
+                    <div class="flex items-center gap-2 mb-6 animate-fade">
+                        <div class="h-[2px] w-12 bg-[#E60000]"></div>
+                        <span class="text-[#E60000] font-orbitron text-xs tracking-[0.3em] uppercase font-bold">Northridge, CA</span>
+                    </div>
+
+                    <h1 class="font-orbitron text-5xl md:text-8xl font-black italic tracking-tighter uppercase leading-[0.9] mb-6 animate-slide">
+                        Reinvent <br>
+                        <span class="text-white/20 outline-text">Your</span> <br>
+                        <span class="text-[#E60000] text-glow">Ride.</span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-gray-400 font-light mb-10 max-w-lg animate-fade-delayed">
+                        LA’s Premier Paint Protection & Vinyl Styling. Expert craftsmanship for the elite automotive enthusiast.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 animate-fade-delayed-more">
+                        <a href="#contact" class="bg-[#E60000] hover:bg-red-700 text-white font-orbitron font-bold py-5 px-10 tracking-widest uppercase transform -skew-x-12 transition-all red-glow text-center">
+                            <span class="block skew-x-12">Get A Quote</span>
+                        </a>
+                        <a href="#showcase" class="bg-transparent border border-white/20 hover:border-[#E60000] text-white font-orbitron font-bold py-5 px-10 tracking-widest uppercase transform -skew-x-12 transition-all text-center">
+                            <span class="block skew-x-12">View Work</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#E60000] via-[#E60000]/20 to-transparent"></div>
+        </section>
+
+        <section id="services" class="py-24 bg-[#080808] relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div>
+                        <h2 class="font-orbitron text-4xl md:text-5xl font-black italic tracking-tighter uppercase mb-4">
+                            Precision <span class="text-[#E60000]">Styling</span>
+                        </h2>
+                        <p class="text-gray-500 max-w-md uppercase tracking-widest text-sm font-bold">We don't just wrap cars, we redefine their presence.</p>
+                    </div>
+                    <div class="hidden md:block h-[1px] flex-grow mx-10 bg-white/5"></div>
+                    <div class="text-right text-xs tracking-[0.4em] text-white/40 font-orbitron uppercase">01 / SERVICES</div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <article class="group relative h-[450px] overflow-hidden glass-card red-glow-hover transition-all duration-500">
+                        <div class="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1599814472145-21919830f30c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" alt="Color change wrap">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/80 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 p-8 flex flex-col h-full justify-end">
+                            <div class="mb-6 transform group-hover:-translate-y-2 transition-transform"><i data-lucide="palette" class="w-10 h-10 text-[#E60000]"></i></div>
+                            <h3 class="font-orbitron text-2xl font-bold uppercase mb-4 tracking-tight group-hover:text-[#E60000] transition-colors">Color Change Wraps</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6 opacity-80 group-hover:opacity-100">Limitless possibilities from Satin black to exotic chameleon finishes.</p>
+                            <div class="h-1 w-12 bg-[#E60000] transform origin-left scale-x-50 group-hover:scale-x-100 transition-transform"></div>
+                        </div>
+                    </article>
+
+                    <article class="group relative h-[450px] overflow-hidden glass-card red-glow-hover transition-all duration-500">
+                        <div class="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c15d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" alt="Paint protection film">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/80 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 p-8 flex flex-col h-full justify-end">
+                            <div class="mb-6 transform group-hover:-translate-y-2 transition-transform"><i data-lucide="shield-check" class="w-10 h-10 text-[#E60000]"></i></div>
+                            <h3 class="font-orbitron text-2xl font-bold uppercase mb-4 tracking-tight group-hover:text-[#E60000] transition-colors">Paint Protection (PPF)</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6 opacity-80 group-hover:opacity-100">Self-healing armor for your investment. Invisible and bulletproof.</p>
+                            <div class="h-1 w-12 bg-[#E60000] transform origin-left scale-x-50 group-hover:scale-x-100 transition-transform"></div>
+                        </div>
+                    </article>
+
+                    <article class="group relative h-[450px] overflow-hidden glass-card red-glow-hover transition-all duration-500">
+                        <div class="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1598501479155-90b968726190?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" alt="Ceramic coating">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/80 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 p-8 flex flex-col h-full justify-end">
+                            <div class="mb-6 transform group-hover:-translate-y-2 transition-transform"><i data-lucide="flame" class="w-10 h-10 text-[#E60000]"></i></div>
+                            <h3 class="font-orbitron text-2xl font-bold uppercase mb-4 tracking-tight group-hover:text-[#E60000] transition-colors">Ceramic Coating</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6 opacity-80 group-hover:opacity-100">Liquid glass protection that repels everything and enhances depth.</p>
+                            <div class="h-1 w-12 bg-[#E60000] transform origin-left scale-x-50 group-hover:scale-x-100 transition-transform"></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="showcase" class="py-24 bg-[#050505]">
+            <div class="max-w-[1600px] mx-auto px-4">
+                <div class="flex flex-col items-center mb-16">
+                    <span class="text-[#E60000] font-orbitron text-xs tracking-[0.5em] mb-4 font-bold">THE GALLERY</span>
+                    <h2 class="font-orbitron text-5xl font-black italic uppercase tracking-tighter">Midnight <span class="text-white/20">Spec</span></h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="relative overflow-hidden group aspect-[4/5] md:row-span-2">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800" alt="Automotive styling project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0">
+                        <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-all duration-300"></div>
+                        <div class="absolute bottom-0 left-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/80 to-transparent w-full">
+                            <p class="font-orbitron text-sm font-bold tracking-widest uppercase">Project_01</p>
+                            <p class="text-xs text-[#E60000] uppercase font-bold">Completed</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden group aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=800" alt="Automotive styling project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0">
+                        <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-all duration-300"></div>
+                        <div class="absolute bottom-0 left-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/80 to-transparent w-full">
+                            <p class="font-orbitron text-sm font-bold tracking-widest uppercase">Project_02</p>
+                            <p class="text-xs text-[#E60000] uppercase font-bold">Completed</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden group aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800" alt="Automotive styling project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0">
+                        <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-all duration-300"></div>
+                        <div class="absolute bottom-0 left-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/80 to-transparent w-full">
+                            <p class="font-orbitron text-sm font-bold tracking-widest uppercase">Project_03</p>
+                            <p class="text-xs text-[#E60000] uppercase font-bold">Completed</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden group aspect-[4/5] md:row-span-2">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800" alt="Automotive styling project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0">
+                        <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-all duration-300"></div>
+                        <div class="absolute bottom-0 left-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/80 to-transparent w-full">
+                            <p class="font-orbitron text-sm font-bold tracking-widest uppercase">Project_04</p>
+                            <p class="text-xs text-[#E60000] uppercase font-bold">Completed</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden group aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&q=80&w=800" alt="Automotive styling project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0">
+                        <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-all duration-300"></div>
+                        <div class="absolute bottom-0 left-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/80 to-transparent w-full">
+                            <p class="font-orbitron text-sm font-bold tracking-widest uppercase">Project_05</p>
+                            <p class="text-xs text-[#E60000] uppercase font-bold">Completed</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden group aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1611821064430-0d40291d0f0b?auto=format&fit=crop&q=80&w=800" alt="Automotive styling project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0">
+                        <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-all duration-300"></div>
+                        <div class="absolute bottom-0 left-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/80 to-transparent w-full">
+                            <p class="font-orbitron text-sm font-bold tracking-widest uppercase">Project_06</p>
+                            <p class="text-xs text-[#E60000] uppercase font-bold">Completed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <a href="#" class="inline-flex items-center gap-4 text-white hover:text-[#E60000] transition-colors font-orbitron font-bold tracking-[0.3em] uppercase group">
+                        Follow our journey
+                        <span class="h-[2px] w-12 bg-white/20 group-hover:bg-[#E60000] transition-all"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="relative py-32 carbon-pattern">
+            <div class="absolute inset-0 bg-[#080808]/80 backdrop-blur-[2px]"></div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-[#E60000] font-orbitron text-xs tracking-[0.5em] mb-4 block font-bold">WHY MAGIC WRAPZ</span>
+                        <h2 class="font-orbitron text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight mb-8">
+                            No Compromise. <br>
+                            Just <span class="text-[#E60000] text-glow">Perfection.</span>
+                        </h2>
+                        <p class="text-gray-400 text-lg mb-10 font-light leading-relaxed">
+                            We started Magic Wrapz with a single mission: To provide the highest level of automotive detailing and protection services in the San Fernando Valley. Our facility is temperature-controlled and dust-filtered to ensure a clean install every single time.
+                        </p>
+                        <div class="flex gap-4">
+                            <div class="bg-white/5 border border-white/10 p-4 transform -skew-x-12">
+                                <p class="font-orbitron text-3xl font-black text-white skew-x-12">1500+</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold skew-x-12">Cars Styled</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 p-4 transform -skew-x-12">
+                                <p class="font-orbitron text-3xl font-black text-white skew-x-12">100%</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold skew-x-12">Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-6">
+                        <div class="glass-card p-8 group hover:bg-white/[0.05] transition-all duration-300 transform hover:-translate-x-2">
+                            <div class="flex gap-6 items-start">
+                                <div class="bg-[#080808] p-3 rounded-none border border-white/5 group-hover:border-[#E60000]/50 transition-all"><i data-lucide="award" class="w-8 h-8 text-[#E60000]"></i></div>
+                                <div>
+                                    <h3 class="font-orbitron text-xl font-bold uppercase mb-2 tracking-tight">Certified Installers</h3>
+                                    <p class="text-gray-500 text-sm leading-relaxed">Factory-trained technicians with over 10 years of combined elite experience.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card p-8 group hover:bg-white/[0.05] transition-all duration-300 transform hover:-translate-x-2">
+                            <div class="flex gap-6 items-start">
+                                <div class="bg-[#080808] p-3 rounded-none border border-white/5 group-hover:border-[#E60000]/50 transition-all"><i data-lucide="zap" class="w-8 h-8 text-[#E60000]"></i></div>
+                                <div>
+                                    <h3 class="font-orbitron text-xl font-bold uppercase mb-2 tracking-tight">Premium Materials</h3>
+                                    <p class="text-gray-500 text-sm leading-relaxed">We exclusively use 3M, Avery Dennison, and Inozetek for unrivaled finishes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card p-8 group hover:bg-white/[0.05] transition-all duration-300 transform hover:-translate-x-2">
+                            <div class="flex gap-6 items-start">
+                                <div class="bg-[#080808] p-3 rounded-none border border-white/5 group-hover:border-[#E60000]/50 transition-all"><i data-lucide="star" class="w-8 h-8 text-[#E60000]"></i></div>
+                                <div>
+                                    <h3 class="font-orbitron text-xl font-bold uppercase mb-2 tracking-tight">5-Star Rated</h3>
+                                    <p class="text-gray-500 text-sm leading-relaxed">Northridge’s most trusted studio with a focus on absolute client satisfaction.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-[#0a0a0a] py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-orbitron text-4xl font-black uppercase mb-4">Ready to reinvent your ride?</h2>
+                <p class="text-gray-400 mb-8">Call, email, or visit us. We respond within one business day.</p>
+                <div class="flex flex-col md:flex-row justify-center gap-6 text-sm tracking-widest uppercase font-bold">
+                    <a href="tel:18185550123" class="inline-flex items-center gap-3 px-6 py-4 glass-card hover:border-[#E60000] transition-all"><i data-lucide="phone" class="w-5 h-5 text-[#E60000]"></i> (818) 555-0123</a>
+                    <a href="mailto:magicwrapz.com@gmail.com" class="inline-flex items-center gap-3 px-6 py-4 glass-card hover:border-[#E60000] transition-all"><i data-lucide="mail" class="w-5 h-5 text-[#E60000]"></i> magicwrapz.com@gmail.com</a>
+                    <a href="https://maps.google.com?q=12345+Reseda+Blvd+Northridge+CA" class="inline-flex items-center gap-3 px-6 py-4 glass-card hover:border-[#E60000] transition-all" target="_blank" rel="noreferrer"><i data-lucide="map-pin" class="w-5 h-5 text-[#E60000]"></i> 12345 Reseda Blvd</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="bg-[#050505] pt-24 pb-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-20">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2 mb-8">
+                        <span class="font-orbitron text-3xl font-bold tracking-tighter uppercase italic">Magic <span class="text-[#E60000]">Wrapz</span></span>
+                    </div>
+                    <p class="text-gray-500 max-w-sm mb-8 leading-relaxed">Experience the pinnacle of automotive aesthetics. From protective films to exotic color transformations, your dream build starts here.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-gray-400 hover:text-[#E60000] transition-colors"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-[#E60000] transition-colors"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-orbitron font-bold text-sm tracking-[0.2em] uppercase mb-8">Location</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-[#E60000] shrink-0"></i>
+                            <span>12345 Reseda Blvd,<br>Northridge, CA 91324</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-[#E60000] shrink-0"></i>
+                            <span>(818) 555-0123</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-[#E60000] shrink-0"></i>
+                            <span>magicwrapz.com@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-orbitron font-bold text-sm tracking-[0.2em] uppercase mb-8">Hours</h4>
+                    <ul class="space-y-2 text-gray-400 text-xs tracking-widest uppercase">
+                        <li class="flex justify-between"><span>Mon - Fri</span> <span class="text-white">9am - 6pm</span></li>
+                        <li class="flex justify-between"><span>Saturday</span> <span class="text-white">10am - 4pm</span></li>
+                        <li class="flex justify-between"><span>Sunday</span> <span class="text-red-600 font-bold">Closed</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-gray-600 text-xs tracking-widest uppercase">© 2026 Magic Wrapz Northridge. All rights reserved.</p>
+                <div class="flex gap-8 text-[10px] text-gray-600 uppercase tracking-widest font-bold">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        const navbar = document.querySelector('[data-navbar]');
+        const menuToggle = document.querySelector('[data-menu-toggle]');
+        const mobileMenu = document.querySelector('[data-mobile-menu]');
+        const menuIcon = () => menuToggle?.querySelector('svg');
+
+        window.addEventListener('scroll', () => {
+            const isScrolled = window.scrollY > 50;
+            navbar?.classList.toggle('scrolled', isScrolled);
+        });
+
+        menuToggle?.addEventListener('click', () => {
+            const isOpen = mobileMenu?.classList.toggle('hidden') === false;
+            if (isOpen) {
+                menuToggle.innerHTML = '<i data-lucide="x"></i>';
+            } else {
+                menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+            }
+            lucide.createIcons();
+        });
+
+        mobileMenu?.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            });
+        });
+
+        lucide.createIcons();
+    </script>
 </body>
 </html>

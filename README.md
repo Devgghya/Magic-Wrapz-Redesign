@@ -1,28 +1,12 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Magic Wrapz — Static Site
 
-# Run and deploy your AI Studio app
+A single-page HTML/CSS landing page (no React, no build tools). Everything you need is in `index.html` and `index.css`.
 
-This contains everything you need to run your app locally.
+## Preview locally
 
-View your app in AI Studio: https://ai.studio/apps/drive/1QkkmkVVHRvA0bKPrRl6QOEi5szXCW8kV
-
-## Run Locally
-
-**Prerequisites:** Node.js
-
-1. Install dependencies: `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app: `npm run dev`
-
-## Build for Production
-
-1. (Optional) Set a base path if deploying under a subfolder (e.g., GitHub Pages) by adding `VITE_BASE_PATH=/Magic-Wrapz-Redesign/` to `.env.production`.
-2. Build: `npm run build`
-3. The static files are emitted to `dist/` and can be uploaded to any static host.
+1. Open `index.html` in your browser, or serve the folder with a simple server (e.g., `python -m http.server 4173`).
 
 ## Deploy
 
-- **GitHub Pages:** With `VITE_BASE_PATH` set to `/Magic-Wrapz-Redesign/`, run `npm run deploy`. This builds and publishes `dist/` via `gh-pages`.
-- **Any static host:** Build with `npm run build`, then upload the contents of `dist/` to your hosting provider (e.g., Netlify, Vercel static export, S3 + CloudFront, or cPanel file manager).
+- Upload `index.html` and `index.css` to any static host (GitHub Pages, Netlify, Vercel static, S3, cPanel, etc.).
+- No npm install or build step required.
